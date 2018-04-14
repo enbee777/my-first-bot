@@ -1,19 +1,20 @@
 from django.shortcuts import render
 from .decorators import bot
+from .functions import melon_search
 
 @bot
-def on_init(requset):
+def on_init(request):
     return {'type': 'text'}
 
 @bot
-def on_message(requset):
+def on_message(request):
     user_key = request.JSON['user_key']    
     type = request.JSON['type']    
     content = request.JSON['content']  # photo 타입일 경우에는 이미지 URL
 
     if content.startswith('멜론검색:'):        
-        query = content[6:]        
-        response = '멜론 "{}" 검색결과\n\n'.format(query) + functions.melon_search(query)    
+        query = content[5:]
+        response = '멜론 "{}" 검색결과\n\n'.format(query) + melon_search(query)
     else:        
         response = '지원하는 명령어가 아닙니다.'
  
@@ -24,7 +25,7 @@ def on_message(requset):
     }
 
 @bot
-def on_added(requset):
+def on_added(request):
     pass
 
 @bot
