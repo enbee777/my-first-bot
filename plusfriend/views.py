@@ -47,29 +47,7 @@ def on_message(request):
     else:        
         response = '지원하는 명령어가 아닙니다.'
 
-    if (message.find(u"오류")>-1):
-        return {
-            'message' : {
-                'text':'선택해주세요'
-            },
-            'keyboard': {
-                "type":"buttons",
-                "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기"]
-            }
-        }
-
-    elif (message.find(u"이용권")>-1):
-        return {
-            'message' : {
-                'text':'선택해주세요'
-            },
-            'keyboard': {
-                "type":"buttons",
-                "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기"]
-            }
-        }
-
-    elif (message.find(u"비밀번호")>-1):
+    if (message.find(u"문의사항")>-1):
         return {
             'message' : {
                 'text':'선택해주세요'
