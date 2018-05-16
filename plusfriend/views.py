@@ -31,16 +31,17 @@ def on_message(request):
     elif content.startswith('차트검색'):
         response = '멜론 차트TOP50위 순위\n\n' + melon_chart()
 
-    elif (message.find("이미지검색")):
-        query = content[5:]
-        response = ''
+    elif content.startswith('이미지검색:'):
+        query = content[6:]
         url = get_image(query)
         return({
             "message": {
-
-            },
-            "photo": {
-                "url":url
+                'text': '결과: '+query,
+                "photo": {
+                    "url":url
+                    "wdith":640,
+                    "height": 480
+                }
             }
         })
     else:        
