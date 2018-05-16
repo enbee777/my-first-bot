@@ -38,8 +38,8 @@ def on_message(request):
             "message": {
                 'text': '결과: '+query,
                 "photo": {
-                    "url":url
-                    "wdith":640,
+                    "url":url,
+                    "width":640,
                     "height": 480
                 }
             }
