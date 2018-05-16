@@ -20,7 +20,7 @@ def on_message(request):
     content = request.JSON['content']  # photo 타입일 경우에는 이미지 URL로 나온당
     message = ((request.body) .decode('utf-8'))
 
-    if content.startswith('멜론검색:'):        
+    if content.startswith('가수검색:'):        
         query = content[5:]
         response = '멜론 "{}" 검색결과\n\n'.format(query) + melon_search(query)
 
