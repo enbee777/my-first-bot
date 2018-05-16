@@ -54,10 +54,10 @@ def on_message(request):
             },
             'keyboard': {
                 "type":"buttons",
-                "buttons" : ["재생이 안돼요ㅠㅠ","오류","이용권"]
+                "buttons" : ["재생이 안돼요","오류","이용권"]
             }
         }
-    elif (message.find(u"재생이 안돼요ㅠㅠ")>-1):
+    elif (message.find(u"재생이 안돼요")>-1):
         response = """다운로드 시점에 발생한 일시적인 오류로 인하여 곡 재생이 안될 수 있습니다.
 
 멜론 플레이어에서 다운로드 목록은 아래와 같은 경로에서 확인하실 수 있습니다.
@@ -65,6 +65,19 @@ def on_message(request):
 ①   PLAYER 탭 > 마이뮤직 > 구매목록
 
 ②   WEB 탭 > 마이뮤직 > 구매목록에서 확인하실 수 있습니다."""
+    
+    elif (message.find(u"이용권")>-1):
+        response = """① MP3 이용권 - MP3 파일 다운로드만 제공
+
+ MP3 30, MP3 40, MP3 50, MP3 100, MP3 150으로 구성
+(음악 MP3 파일과 어학 MP3 파일을 MP3 뒤에 붙은 숫자만큼 각각 다운로드 가능)
+
+② MP3 플러스 이용권 - MP3 파일 다운로드 및 무제한 듣기 제공
+
+ MP3 30 플러스, MP3 40 플러스, MP3 50 플러스, MP3 100 플러스, MP3 150 플러스로 구성
+(MP3 파일과 어학 MP3 파일을 MP3 뒤에 붙은 숫자 만큼 각각 다운로드 받을 수 있는 동시에 음악, 어학, 뮤직비디오 무제한 듣기(보기) 제공)
+
+ ☞http://www.melon.com/commerce/pamphlet/web/sale_listMainView.htm☜"""
     
     
 
