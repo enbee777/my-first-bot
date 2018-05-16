@@ -25,10 +25,10 @@ def on_message(request):
 
     elif content.startswith('노래검색:'):
         query = content[5:]
-        response = '멜론 "{}" 검색결과\n\n'.formate(query) + search(query)
+        response = '멜론 "{}" 검색결과\n\n'.format(query) + search(query)
     
     elif content.startswith('차트검색'):
-        response = '멜론 "{}" 차트TOP50위 순위\n\n'.formate(query) + melon_chart()
+        response = '멜론 "{}" 차트TOP50위 순위\n\n'.format(query) + melon_chart()
     else:        
         response = '지원하는 명령어가 아닙니다.'
 
