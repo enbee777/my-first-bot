@@ -28,7 +28,7 @@ def on_message(request):
         response = '멜론 "{}" 검색결과\n\n'.formate(query) + search(query)
     
     elif content.startswith('차트검색'):
-        response = '멜론 "{}" 차트TOP50위 순위\n\n'.formate(query) + search(query)
+        response = '멜론 "{}" 차트TOP50위 순위\n\n'.formate(query) + melon_chart()
     else:        
         response = '지원하는 명령어가 아닙니다.'
 
