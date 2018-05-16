@@ -47,7 +47,7 @@ def on_message(request):
     else:        
         response = '지원하는 명령어가 아닙니다.'
 
-    if (message.find(u"비밀번호")>-1 or message.find(u"오류")>-1 or message.find(u"이용권")>-1):
+    if (message.find(u"오류")>-1):
         return {
             'message' : {
                 'text':'선택해주세요'
@@ -57,6 +57,29 @@ def on_message(request):
                 "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기"]
             }
         }
+
+    elif (message.find(u"이용권")>-1):
+        return {
+            'message' : {
+                'text':'선택해주세요'
+            },
+            'keyboard': {
+                "type":"buttons",
+                "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기"]
+            }
+        }
+
+    elif (message.find(u"비밀번호")>-1):
+        return {
+            'message' : {
+                'text':'선택해주세요'
+            },
+            'keyboard': {
+                "type":"buttons",
+                "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기"]
+            }
+        }
+
     elif (message.find(u"재생")>-1):
         response = """다운로드 시점에 발생한 일시적인 오류로 인하여 곡 재생이 안될 수 있습니다.
 
@@ -83,8 +106,7 @@ def on_message(request):
         response = """비밀번호 찾기를 통해 본인임이 확인되면 비밀번호를 즉시 변경하실 수 있습니다. 
 
  
-
-1. 회원정보에 등록된 정보(휴대폰번호, 이메일)로 찾기 
+ 1. 회원정보에 등록된 정보(휴대폰번호, 이메일)로 찾기 
 
 ① 아이디/이름/회원정보에 등록된 정보(휴대폰번호 또는 이메일)를 입력 후 인증번호를 요청해주세요.
 
@@ -93,7 +115,6 @@ def on_message(request):
 ②입력하신 인증번호가 정확할 경우, 비밀번호를 변경할 수 있습니다.
 
  
-
 2. 본인확인(본인명의 휴대폰인증) 정보로 찾기
 
 ① 본인확인(실명인증)이 완료된 아이디는 본인명의 휴대폰인증을 통해 찾을 수 있습니다.
