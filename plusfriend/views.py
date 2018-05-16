@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse 
 from .melon_search import search
 from .chart import melon_chart
+from .image import get_image
 import json
 
 
@@ -28,7 +29,20 @@ def on_message(request):
         response = '멜론 "{}" 검색결과\n\n'.format(query) + search(query)
     
     elif content.startswith('차트검색'):
-        response = '멜론 "{}" 차트TOP50위 순위\n\n'.format(query) + melon_chart()
+        response = '멜론 차트TOP50위 순위\n\n' + melon_chart()
+
+    elif (message.find("이미지검색")):
+        query = content[5:]
+        response = ''
+        url = get_image(query)
+        return({
+            "message": {
+
+            },
+            "photo": {
+                "url":url
+            }
+        })
     else:        
         response = '지원하는 명령어가 아닙니다.'
 
@@ -50,6 +64,8 @@ def on_message(request):
 ①   PLAYER 탭 > 마이뮤직 > 구매목록
 
 ②   WEB 탭 > 마이뮤직 > 구매목록에서 확인하실 수 있습니다."""
+    
+    
 
     return {
         'message': {            
