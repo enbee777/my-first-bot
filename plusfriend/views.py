@@ -64,7 +64,7 @@ def on_message(request):
 
 ①   PLAYER 탭 > 마이뮤직 > 구매목록
 
-②   WEB 탭 > 마이뮤직 > 구매목록에서 확인하실 수 있습니다.""",
+②   WEB 탭 > 마이뮤직 > 구매목록에서 확인하실 수 있습니다."""
     
     elif (message.find(u"이용권")>-1):
         response = """① MP3 이용권 - MP3 파일 다운로드만 제공
