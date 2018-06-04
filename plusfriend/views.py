@@ -24,11 +24,11 @@ def on_message(request):
         query = content[5:]
         response = '멜론 "{}" 검색결과\n\n'.format(query) + melon_search(query)
 
-    elif content.startswith('노래검색:'):
+    elif content.startswith('가사검색:'):
         query = content[5:]
         response = '멜론 "{}" 검색결과\n\n'.format(query) + melon_search(query)
     
-    elif content.startswith('차트검색'):
+    elif content.startswith('차트순위'):
         response = '멜론 차트 TOP10 순위\n\n' + melon_chart()
 
     elif content.startswith('이미지검색:'):
@@ -54,7 +54,7 @@ def on_message(request):
             },
             'keyboard': {
                 "type":"buttons",
-                "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기"]
+                "buttons" : ["재생이 안돼요","이용권","비밀번호 찾기",]
             }
         }
 
